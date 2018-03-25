@@ -5,8 +5,7 @@ const sayabel = require('./sayabel');
 router.use('/sayabel', sayabel);
 
 router.get('/', (req, res) => {
-  res.write("This will be the homepage");
-  //Will use /home
+  res.render('index')
 });
 
 module.exports = router;
