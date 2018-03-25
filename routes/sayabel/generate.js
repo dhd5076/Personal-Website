@@ -1,9 +1,14 @@
 var SayAbel  = require('sayabel')
 var sayabelInstance = new SayAbel(true);
+
 module.exports = (req, res) => {
-    sayabelInstance.learnFromFile("data/works/nietzsche-the-joyful-wisdom.txt", (err) => {
-        sayabelInstance.generateText(100, (text, err) => {
-            res.send(text);
+    response = "";
+    console.log(req.params.works.split(','));
+    req.params.works.split(',').forEach((work) => {
+        sayabelInstance.learnFromFile("./data/works/" + work + ".txt", (err) => {
+            sayabelInstance.generateText(100, (text, err) => {
+                res.send(text.replace("\n", "<br/>"));
+            });
         });
-      });
-};
+    });
+}
