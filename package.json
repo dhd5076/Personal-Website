@@ -1,0 +1,16 @@
+{
+  "name": "mj-bot",
+  "version": "1.0.0",
+  "description": "mj",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Dylan Dunn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "nodemon": "^1.17.2",
+    "sayabel": "^0.1.1"
+  }
+}
