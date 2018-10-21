@@ -2,11 +2,6 @@ extends layout
 
 block content
   div.container
-    h1
-      a.back(href="../") BACK
-      hr
-    h1=post_data.title
-    p !{post_data.body}
-    hr
-    h1
-      a.back(href="../") BACK
+    div.post-wrapper
+      h3.post_title=post_data.title
+      p !{post_data.body}

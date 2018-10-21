@@ -1,13 +1,13 @@
 extends layout
 
 block content
-  div.container
-    form.submit_form(method='post' action='/submit')
-        h3 Submit a post
-        input.titlebox(name="title" type='text' placeholder='Title')
-        textarea.textbox(rows="50" cols="80" name="body" type='textarea' placeholder='Body')
-        div.float_right
-            button.submit(type='submit') Post
-    hr
-    hr
-    span BTC: 1AcRqHFQK28dcCjdycjPrKQM9euuEbXJnB
+    div.container
+        form.submit_form(method='post' action='/submit')
+            .form_title
+                h3 Submit A Post
+            .input-wrapper
+                input.titlebox(name="title" type='text' placeholder='Title')
+                textarea.textbox(rows="25" cols="80" name="body" type='textarea' placeholder='Body')
+                div.float_right
+                    button.submit(type='submit') Post
+

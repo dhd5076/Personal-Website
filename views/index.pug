@@ -2,14 +2,9 @@ extends layout
 
 block content
   div.container
-    form(method='get' action='/')
-      input.searchbox(name="q" type='text' value=search placeholder='Search Posts')
-      button(type='submit') Search All Posts
-    hr
-    ol
+    div.post-wrapper
+      h3.post_title All Posts
       each val, index in posts
-        li
-          a(href='/post/' + val._id)=val.title
-    hr
-    a(href="/submit") Submit A Post
-    //span BTC: 1AcRqHFQK28dcCjdycjPrKQM9euuEbXJnB
+          div.post_item
+            img.ico(src='https://via.placeholder.com/32.png')
+            a(href='/post/' + val._id)=val.title

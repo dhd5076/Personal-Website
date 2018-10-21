@@ -8,11 +8,16 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous")
   body
-    .navbar 
-      ul
-        li
+    .navbar
+      .navbar-right
           a(href="/") Home
-        li
-          a(href="/") Submit
+          a(href="/submit") Submit
+          a(href="/login") Login
+          a(href="/account") 
+            i(class="fas fa-user")
     block content
+
+    div.footer
+        span BTC: 1AcRqHFQK28dcCjdycjPrKQM9euuEbXJnB

@@ -1,21 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 @media only screen and (min-width: 750px) {
+  html {
+    height:100%;
+    padding:0px;
+  }
   body {
-    padding: 50px;
+    padding: 0px;
+    margin:0px;
     font: 18px "Roboto", Helvetica, Arial, sans-serif;
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
+    background: url(https://i.imgur.com/joWfbpN.png) no-repeat center center fixed;
+    top: 0; bottom: 0; left: 0; right: 0;
+    overflow-y: scroll;
+    height:100%;
   }
   .container {
     margin: auto;
+    margin-top:0px;
     max-width:800px;
     padding: 0px;
+    padding-top:100px;
+  }
+
+  .post-wrapper {
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    padding-bottom:5px;
+  }
+  .post-wrapper > p {
+    margin: 10px;
   }
 
   .back {
     color:white;
-    background-color: red;
+    background-color: #02213e;
     padding:4px;
     text-decoration: none;
   }
@@ -27,6 +47,36 @@
     overflow: hidden;
     text-decoration: none;
   }
+
+  .post_item {
+    margin:10px;
+    padding:10px;
+    height:200px;
+    background-color: white;
+    color:black;
+    border-bottom: 1px solid lightgray;
+    text-align: left;
+    position: relative;
+  }
+
+  .post_item > img {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 32px;
+    margin: 6px;
+  }
+
+  .post_item > a {
+    text-decoration: none;
+    color:white;
+  }
+
+  h3.post_title {
+    color:white;
+    padding:10px;
+    background-color: #044480;
+  }
   
   form {
     padding: 0px;
@@ -35,11 +85,17 @@
   }
 
   form.submit_form {
-    padding:10px;
-    border:1px solid red;
     text-align: left;
+    background-color: white;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
   
+  form.submit_form > .input-wrapper {
+    background-color: white;
+    padding:10px;
+    width: 100%;
+  }
+
   h5 {
     font-weight: 500;
   }
@@ -60,21 +116,49 @@
     padding:6px;
   }
 
+  .form_title {
+    display: block;
+    margin:0px;
+    height:30px;
+    padding:10px;
+    width:100%;
+    background-color: #FFAAAA;
+    color:white;
+  }
+  .form_title > h3 {
+    margin:0px;
+  }
+
   .titlebox {
     display:block;
     width:50%;
     margin-bottom: 10px;
     font: 18px "Lucida Granda", Helvetica, Arial, sans-serif;
     padding:6px;
+    border:none;
+    border-bottom:3px solid grey;
+  }
+
+  .titlebox:focus {
+    border-bottom:3px solid #044480;
+    outline: 0;
   }
 
   .textbox {
+    resize:none;
     display:block;
     width:786px;
     margin:0px;
     margin-bottom: 10px;
     font: 18px "Lucida Granda", Helvetica, Arial, sans-serif;
     padding:6px;
+    border:none;
+    border-bottom:3px solid grey;
+  }
+
+  .textbox:focus{
+    border-bottom:3px solid #044480;
+    outline: 0;
   }
   
   a {
@@ -82,8 +166,8 @@
   }
   
   button {
-    background-color: #f44336;
-    color:white;
+    background-color: #02213e;
+    color: white;
     text-decoration: none;
     border: none;
     width: 33%;
@@ -92,7 +176,8 @@
     font-weight: 600;
   }
   button:hover {
-    background-color:#dd0000;
+    background-color: #044480;
+    cursor: pointer;
   }
 
   button.submit {
@@ -109,6 +194,47 @@
   
   ol {
     padding:0px;
+  }
+
+  div.navbar {
+    z-index:100;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: white;
+    width:100%;
+    padding-right:0px;
+    text-align: right;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+
+  div.navbar > div.navbar-right {
+    display: inline;
+    margin-right: 100px;
+  }
+
+  div.navbar > div.navbar-right > a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.5);
+    padding:16px;
+    margin-left:10px;
+    text-align: center;
+  }
+
+  .footer {
+    background-color: rgba(256, 256, 256, 0.8);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    position: fixed;
+    right:0px;
+    bottom:0px;
+    width:100%;
+    margin:0px;
+    text-align: center;
+  }
+  .footer > span {
+    padding:16px;
   }
 }
 
