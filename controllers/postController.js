@@ -1,12 +1,9 @@
 var Post = require('../models/post');
 
 exports.post_list_get = function(req, res) {
-    Post.find({}, 'title author')
-    .populate('author')
-    .exec(function (err, post_list) {
-        if (err) { return next(err); }
-
-        res.render('blog', { title: 'Book List', posts: post_list});
+    Post.find({}, function(err, post_list) {
+        if (err) { console.log(err.message); }
+        res.render('index', { title: 'Book List', posts: post_list});
     });
 };
 
@@ -15,7 +12,15 @@ exports.post_create_get = function(req, res) {
 };
 
 exports.post_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Create Post');
+    var post = new Post({
+        title: req.body.title,
+        author: 'Dylan Dunn',
+        body: req.body.body
+    });
+    post.save(function(err) {
+        if (err) { console.log(err.message); }
+    });
+    res.render('create_post');
 };
 
 exports.post_delete_get = function(req, res) {

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div.container
+    form(method='post' action='/submit')
+      input.searchbox(name="title" type='text' placeholder='Title')
+      input.searchbox(name="body" type='text' placeholder='Body')
+      button(type='submit') Post
+    hr
+    hr
+    span BTC: 1AcRqHFQK28dcCjdycjPrKQM9euuEbXJnB

@@ -2,19 +2,14 @@ extends layout
 
 block content
   div.container
-    h1 TRP Backup
-    h5 Below are the top 1000 posts from the /r/theredpill subreddit. This website serves as a browsable archive in light of recent censorship of TRP.
-    h5 Questions or Suggestions? Contact Me: contact@trpbackup.com
     form(method='get' action='/')
       input.searchbox(name="q" type='text' value=search placeholder='Search Posts')
       button(type='submit') Search All Posts
     hr
     ol
-      each val, index in data
+      each val, index in posts
         li
-          if val.index
-            a.post_link(href='/posts/'+val.index)=val[0]
-          else
-            a.post_link(href='/posts/'+index)=val[0]
+          a(href='/post/' + val._id)=val.title
     hr
-    span BTC: 1AcRqHFQK28dcCjdycjPrKQM9euuEbXJnB
+    a(href="/submit") Submit A Post
+    //span BTC: 1AcRqHFQK28dcCjdycjPrKQM9euuEbXJnB

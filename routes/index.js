@@ -1,24 +1,23 @@
 var express = require('express');
 var router = express.Router();
-var postdata = require("../top1000.json");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  if(req.query.q) {
-    var titlesToSend = [];
-    postdata.forEach(function (element,index) {
-      if(element[0].includes(req.query.q)) {
-        element.index = index;
-        titlesToSend.push(element);
-      }
-    });
-    res.render('index', {data: titlesToSend, title: 'Search Red Pill Backup', search: req.query.q});
-  } else {
-    postdata.forEach(function (element, index) {
-      element.index = index;
-    });
-    res.render('index', {data: postdata, title: 'The Red Pill Backup'});
-  }
-});
+var post_controller = require('../controllers/postController.js');
+
+router.get('/', post_controller.post_list_get);
+
+router.get('/submit', post_controller.post_create_get);
+
+router.post('/submit', post_controller.post_create_post);
+
+router.get('/post/:id/delete', post_controller.post_delete_get);
+
+router.post('/post/:id/delete', post_controller.post_delete_post);
+
+router.get('/post/:id/update', post_controller.post_update_get);
+
+router.post('/post/:id/update', post_controller.post_update_post);
+
+router.get('/post/:id', post_controller.post_get);
+
 
 module.exports = router;
