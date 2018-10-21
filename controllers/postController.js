@@ -20,7 +20,7 @@ exports.post_create_post = function(req, res) {
     post.save(function(err) {
         if (err) { console.log(err.message); }
     });
-    res.render('create_post');
+    res.redirect('/post/' + post._id);
 };
 
 exports.post_delete_get = function(req, res) {
@@ -40,5 +40,7 @@ exports.post_update_post = function(req, res) {
 };
 
 exports.post_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Get Post');
+    Post.findById(req.params.id, function(err, post) {
+        res.render('post', {post_data: post});
+    });
 };

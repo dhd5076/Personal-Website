@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PostSchema = new Schema({
-    _id: {type: Schema.Types.ObjectId,  index: true, auto: true},
+    _id: {type: Schema.Types.ObjectId, auto: true},
     tags: [],
     date:{ type: Date, default: Date.now },
     title: String,
