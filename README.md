@@ -1,5 +1,9 @@
-# dylandunn.me
+# The TRP Backup
 
-__Code for my personal website__
+A browsable backup of the TRP subreddit. With a recent quarantine and a ban on the horizon this serves as a alternative in case the reddit
+admins decide to completly censor TRP.
 
-Currently it only is capable of hosting an API and soon interface for SayAbel, A language analyszer and generator. Mainly based around philosophical works.
+Disclaimer: The views expresssed in the backed up content aren't neccessarily that of the author. My primary goal is to preserve free speech
+and prevent censorship of potentially controversial ideas not to promote any set of beliefs. 
+
+This website is live at trpbackup.com

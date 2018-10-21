@@ -1,7 +1,18 @@
 doctype html
-html(lang='en')
-    head
-        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css");
-        title Pug
-    body
-        block content
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="description" content="The Red Pill Backup's goal is to provide a browsable archive the /r/theredpill subreddit in case it continues to get censored.")
+    meta(name="keywords" content="The Red Pill, TRP, TRP quarantined, /r/theredpill, /r/theredpill quarantined, TRP backup, The Red Pill Backup, TRP Basics, How to pickup women")
+    meta(name="author" content="SaladLover69")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="google-site-verification" content="5LpgEijsE-LFL5cqmDiQuf8x9aiH8SDpB9BZK1XiJBQ")
+    include track.html
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div.centerad
+      include banner-ad.html
+    block content
+    div.centerad
+      include banner-ad.html
