@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div.container
+        form.small_submit_form(method='post' action='/signup')
+            .form_title
+                h3 Signup
+            .input-wrapper
+                label <i class="fas fa-envelope"></i>
+                input.titlebox(name="email" type='email' placeholder='Email')
+                label <i class="fas fa-user"></i>
+                input.titlebox(name="username" type='text' placeholder='Username')
+                label <i class="fas fa-key"></i>
+                input.titlebox(name="password" type='password' placeholder='Password')
+                label <i class="fas fa-key"></i>
+                input.titlebox(name="password_conf" type='password' placeholder='Re-type Password')
+                div.float_right
+                    button.submit(type='submit') Register
+

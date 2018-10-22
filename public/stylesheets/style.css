@@ -22,6 +22,7 @@
     max-width:800px;
     padding: 0px;
     padding-top:100px;
+    padding-bottom: 100px;
   }
 
   .post-wrapper {
@@ -51,12 +52,28 @@
   .post_item {
     margin:10px;
     padding:10px;
-    height:200px;
     background-color: white;
     color:black;
     border-bottom: 1px solid lightgray;
     text-align: left;
     position: relative;
+  }
+
+  .post_item > p.text::before {
+    content:'';
+    width:100%;
+    height:100%;    
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(transparent 150px, white);
+  }
+  .post_item > p.text {
+    color:grey;
+    word-wrap: wrap;
+    overflow: hidden;
+    display: block;
+    height: 150px;
   }
 
   .post_item > img {
@@ -67,9 +84,9 @@
     margin: 6px;
   }
 
-  .post_item > a {
+  a {
     text-decoration: none;
-    color:white;
+    color:black;
   }
 
   h3.post_title {
@@ -94,6 +111,30 @@
     background-color: white;
     padding:10px;
     width: 100%;
+  }
+
+  .small_submit_form {
+    text-align: left;
+    width:400px;
+    margin:auto;
+  }
+
+  .small_submit_form > .input-wrapper {
+    background-color: white;
+    padding:10px;
+    width: 400px;
+    margin:auto;
+    font: 24px "Roboto", Helvetica, Arial, sans-serif;
+  }
+
+  .small_submit_form > .input-wrapper > label{
+    float: left;
+    padding:10px;
+  }
+  .small_submit_form > .input-wrapper > input{
+    padding:10px;
+    width:300px;
+    margin-bottom:20px;
   }
 
   h5 {
@@ -216,11 +257,14 @@
   div.navbar > div.navbar-right > a {
     display: inline-block;
     text-decoration: none;
-    color: white;
-    background-color:rgba(0, 0, 0, 0.5);
-    padding:16px;
+    color: black;
+    padding:10px;
     margin-left:10px;
     text-align: center;
+  }
+
+  div.navbar > div.navbar-right > a > img {
+    border-radius: 32px;
   }
 
   .footer {

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var post_controller = require('../controllers/postController.js');
+var user_controller = require('../controllers/userController.js');
 
 router.get('/', post_controller.post_list_get);
 
@@ -18,6 +19,10 @@ router.get('/post/:id/update', post_controller.post_update_get);
 router.post('/post/:id/update', post_controller.post_update_post);
 
 router.get('/post/:id', post_controller.post_get);
+
+router.get('/signup', user_controller.user_create_get);
+
+router.post('/signup', user_controller.user_create_post);
 
 
 module.exports = router;

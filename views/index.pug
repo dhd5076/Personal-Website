@@ -5,6 +5,9 @@ block content
     div.post-wrapper
       h3.post_title All Posts
       each val, index in posts
+        a(href='/post/' + val._id)
           div.post_item
-            img.ico(src='https://via.placeholder.com/32.png')
-            a(href='/post/' + val._id)=val.title
+            p=val.title
+            p.text=val.body
+            img.ico( width='32px' src='https://i.imgur.com/5UWH4iv.png')
+
