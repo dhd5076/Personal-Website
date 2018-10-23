@@ -249,12 +249,21 @@
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   }
 
+  div.navbar > div.navbar-left {
+    padding:10px;
+    margin-right: 100px;
+    float:left
+  }
+  div.navbar > div.navbar-left > a {
+    color:black;
+  }
+
   div.navbar > div.navbar-right {
     display: inline;
     margin-right: 100px;
   }
 
-  div.navbar > div.navbar-right > a {
+  div.navbar > div.navbar-right > a.nav {
     display: inline-block;
     text-decoration: none;
     color: black;
@@ -263,8 +272,28 @@
     text-align: center;
   }
 
+  div.navbar > div.navbar-right > a.solidbtn {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding:10px;
+    margin-left:10px;
+    text-align: center;
+    background-color: lightblue;
+    border: 1px solid lightblue;
+  }
+
   div.navbar > div.navbar-right > a > img {
     border-radius: 32px;
+  }
+
+  .error_bar {
+    background-color: red;
+    padding:2px;
+    padding-top:50px;
+    width: 100%;
+    color:white;
+    text-align: center;
   }
 
   .footer {

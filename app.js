@@ -22,7 +22,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'sekd;alskd;laskd;alw439349iE',
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: {
+    expires: 6000000
+  }
 }));
 
 app.use('/', indexRouter);

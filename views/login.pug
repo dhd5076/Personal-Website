@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div.container
+        form.small_submit_form(method='post' action='/login')
+            .form_title
+                h3 Login
+            .input-wrapper
+                label <i class="fas fa-envelope"></i>
+                input.titlebox(name="email" type='email' placeholder='Email')
+                label <i class="fas fa-user"></i>
+                input.titlebox(name="password" type='password' placeholder='Password')
+                div.float_right
+                    button.submit(type='submit') Login
+

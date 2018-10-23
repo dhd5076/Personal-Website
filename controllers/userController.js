@@ -38,8 +38,37 @@ exports.user_create_post = function(req, res) {
     });
 };
 
+exports.user_auth_get = function(req, res) {
+    res.render('login')
+}
+
+exports.user_auth_post = function(req, res) {
+    User.findOne({
+        email: req.body.email
+    }, function(err, user) {
+        console.log(user)
+        if(user) {
+            user.checkPassword(req.body.password, function(result) {
+                if (result) {
+                    res.redirect('/');
+                } else {
+                    res.render('login', {errmsg: 'Wrong Password'})
+                }
+            });
+        } else {
+            res.render('login', {errmsg: 'Incorrect Email'})
+        }
+    });
+}
+
 exports.view_user = function(req, res) {
-    Post.findById(req.params.id, function(err, post) {
-        res.render('post', {post_data: post});
+    User.findOne({
+        username: req.params.userID
+    }, function(err, user) {
+        if(user) {
+            res.render('user', {username: user.username});
+        } else {
+            res.send('User Not Found');
+        }
     });
 };

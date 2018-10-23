@@ -29,4 +29,12 @@ var UserSchema = new mongoose.Schema({
     }
   });
 
+UserSchema.methods.checkPassword = function(password, callback) {
+    if(this.password == password) {
+        callback(true);
+    } else {
+        callback(false);
+    }
+}
+
 module.exports = mongoose.model('User', UserSchema);
