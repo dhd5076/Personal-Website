@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div.container
+        form.small_submit_form(method='post' action='/user/' + username + '/posts')
+            .form_title
+                h3 Profile
+            .input-wrapper
+                img.profilepic(src='https://via.placeholder.com/128x128')
+                p.username #{username}
+                input.url(type='text' placeholder='Image URL')
+                textarea.about This is some text about you.
+                div.float_right
+                    button.view(type='submit') Update Profile
+

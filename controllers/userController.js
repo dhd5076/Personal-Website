@@ -80,3 +80,15 @@ exports.view_user = function(req, res) {
         }
     });
 };
+
+exports.view_account = function(req, res) {
+    User.findOne({
+        username: req.session.user.username
+    }, function(err, user) {
+        if(user) {
+            res.render('account', {username: user.username, loggedin: true});
+        } else {
+            res.send('User Not Found');
+        }
+    });
+};

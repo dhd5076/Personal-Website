@@ -30,6 +30,8 @@ router.post('/login', user_controller.user_auth_post);
 
 router.get('/logout', auth.authreq, user_controller.user_logout_get);
 
+router.get('/account', auth.authreq, user_controller.view_account);
+
 router.get('/user/:userID', user_controller.view_user);
 
 router.post('/user/:userID/posts', post_controller.view_user_posts);

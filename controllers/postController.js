@@ -5,7 +5,7 @@ var converter = new showdown.Converter();
 exports.post_list_get = function(req, res) {
     Post.find({}, function(err, post_list) {
         if (err) { console.log(err.message); }
-        res.render('index', { title: 'Book List', posts: post_list, loggedin: req.session.loggedin});
+        res.render('index', { title: 'Recent Posts', posts: post_list, loggedin: req.session.loggedin});
     });
 };
 
