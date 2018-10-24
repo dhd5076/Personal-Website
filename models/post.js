@@ -8,7 +8,8 @@ var PostSchema = new Schema({
     date:{ type: Date, default: Date.now },
     title: String,
     author: String,
-    body: String
+    body: String,
+    prev: String
 });
 
 module.exports = mongoose.model('Post', PostSchema);

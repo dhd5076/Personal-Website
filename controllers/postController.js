@@ -1,4 +1,6 @@
 var Post = require('../models/post');
+var showdown  = require('showdown');
+var converter = new showdown.Converter();
 
 exports.post_list_get = function(req, res) {
     Post.find({}, function(err, post_list) {
@@ -15,7 +17,8 @@ exports.post_create_post = function(req, res) {
     var post = new Post({
         title: req.body.title,
         author: req.session.user.username,
-        body: req.body.body
+        body: converter.makeHtml(req.body.body),
+        prev: req.body.body.replace(/<(?:.|\n)*?>/gm, '')
     });
     post.save(function(err) {
         if (err) { console.log(err.message); }

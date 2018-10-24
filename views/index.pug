@@ -10,6 +10,6 @@ block content
             .float-img-right
               img(width='300px' src="https://loremflickr.com/640/360")
             p=val.title
-            p.text=val.body
+            p.text=val.prev
             i Published: #{val.date.getMonth() + '/' + val.date.getDate() + '/' + val.date.getFullYear()} 
               span by #{val.author}

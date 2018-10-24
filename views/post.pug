@@ -7,21 +7,20 @@ block content
       i Published: #{post_data.date.getMonth() + '/' + post_data.date.getDate() + '/' + post_data.date.getFullYear()} 
               span by
                 a.authorlink(href='/user/' + post_data.author) #{post_data.author}
+      img.post_img(src='https://placebeard.it/780x390')
       if loggedin
         .toolbar
-            a(href="/account") <i class="fas fa-edit"></i>
-            a(href="/post/" + post_data.id + "/delete") <i class="fas fa-trash-alt"></i>
-      img.post_img(src='https://placebeard.it/780x390')
+          a(href="/account") <i class="fas fa-edit"></i>
+          a(href="/post/" + post_data.id + "/delete") <i class="fas fa-trash-alt"></i>
+      <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_google_plus"></a>
+      <a class="a2a_button_reddit"></a>
+      <a class="a2a_button_copy_link"></a>
+          </div>
+          <script async src="https://static.addtoany.com/menu/page.js"></script>
       h2.post_title=post_data.title
-      p.post_text !{post_data.body}
-      .socialbar
-        a( href="#" class="facebook")
-          <i class="fab fa-facebook"></i> 
-        a( href="#" class="twitter")
-          <i class="fab fa-twitter"></i> 
-        a( href="#" class="google")
-          <i class="fab fa-google"></i> 
-        a( href="#" class="linkedin")
-          <i class="fab fa-linkedin"></i>
-        a( href="#" class="youtube")
-            <i class="fab fa-youtube"></i>
+      .post-text-wrapper
+        p.post_text !{post_data.body}
