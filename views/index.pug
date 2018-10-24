@@ -3,11 +3,13 @@ extends layout
 block content
   div.container
     div.post-wrapper
-      h3.post_title All Posts
+      h3.post_title Recent Posts
       each val, index in posts
         a(href='/post/' + val._id)
           div.post_item
+            .float-img-right
+              img(width='300px' src="https://loremflickr.com/640/360")
             p=val.title
             p.text=val.body
-            img.ico( width='32px' src='https://i.imgur.com/5UWH4iv.png')
-
+            i Published: #{val.date.getMonth() + '/' + val.date.getDate() + '/' + val.date.getFullYear()} 
+              span by #{val.author}

@@ -26,14 +26,14 @@ exports.user_create_post = function(req, res) {
                             res.send(user);
                         });
                     } else {
-                        res.send("Passwords don't match")
+                        res.render('signup', {errmsg: 'Passwords Don\'t Match'})
                     }
                 } else {
-                    res.send("Username Exists");
+                    res.render('signup', {errmsg: 'Username Already Exists'})
                 }
             });
         } else {
-            res.send("Email Already in Use");
+            res.render('signup', {errmsg: 'Email Already In Use'})
         }
     });
 };
@@ -50,6 +50,7 @@ exports.user_auth_post = function(req, res) {
         if(user) {
             user.checkPassword(req.body.password, function(result) {
                 if (result) {
+                    req.session.user = user;
                     res.redirect('/');
                 } else {
                     res.render('login', {errmsg: 'Wrong Password'})
@@ -59,6 +60,13 @@ exports.user_auth_post = function(req, res) {
             res.render('login', {errmsg: 'Incorrect Email'})
         }
     });
+}
+
+exports.user_logout_get = function(req, res) {
+    if(req.session && req.session.user) {
+        req.session.destroy()
+    }
+    res.redirect('/');
 }
 
 exports.view_user = function(req, res) {

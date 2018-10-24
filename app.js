@@ -6,6 +6,8 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var indexRouter = require('./routes/index');
+const expressip = require('express-ip');
+var middleware = require('./middleware/authenticate.js');
 
 var app = express();
 
@@ -18,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressip().getIpInfoMiddleware);
 
 app.use(session({
   secret: 'sekd;alskd;laskd;alw439349iE',
@@ -27,6 +30,8 @@ app.use(session({
     expires: 6000000
   }
 }));
+
+app.use(middleware.authopt);
 
 app.use('/', indexRouter);
 

@@ -3,18 +3,18 @@ var Post = require('../models/post');
 exports.post_list_get = function(req, res) {
     Post.find({}, function(err, post_list) {
         if (err) { console.log(err.message); }
-        res.render('index', { title: 'Book List', posts: post_list});
+        res.render('index', { title: 'Book List', posts: post_list, loggedin: req.session.loggedin});
     });
 };
 
 exports.post_create_get = function(req, res) {
-    res.render('create_post');
+    res.render('create_post', {loggedin: req.session.loggedin});
 };
 
 exports.post_create_post = function(req, res) {
     var post = new Post({
         title: req.body.title,
-        author: 'Dylan Dunn',
+        author: req.session.user.username,
         body: req.body.body
     });
     post.save(function(err) {
@@ -24,11 +24,16 @@ exports.post_create_post = function(req, res) {
 };
 
 exports.post_delete_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Delete Post');
+    Post.findById(req.params.id, function(err, post) {
+        res.render('confirmdelete', {post_data: post, loggedin: req.session.loggedin});
+    });
 };
 
 exports.post_delete_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Delete Post');
+    Post.findById(req.params.id, function(err, post) {
+        post.remove();
+        res.redirect('/');
+    });
 };
 
 exports.post_update_get = function(req, res) {
@@ -41,6 +46,6 @@ exports.post_update_post = function(req, res) {
 
 exports.post_get = function(req, res) {
     Post.findById(req.params.id, function(err, post) {
-        res.render('post', {post_data: post});
+        res.render('post', {post_data: post, loggedin: req.session.loggedin});
     });
 };

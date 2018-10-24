@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    div.container
+        form.small_submit_form(method='post' action='/post/' + post_data.id + '/delete')
+            .form_title
+                h3 Delete Post
+            .input-wrapper
+                p Are you sure you want to delete:
+                i " #{post_data.title} "
+                div.float_right
+                    button.submit(type='submit') Delete
+

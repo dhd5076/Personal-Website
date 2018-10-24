@@ -3,5 +3,25 @@ extends layout
 block content
   div.container
     div.post-wrapper
-      h3.post_title=post_data.title
-      p !{post_data.body}
+      h3.post_title 
+      i Published: #{post_data.date.getMonth() + '/' + post_data.date.getDate() + '/' + post_data.date.getFullYear()} 
+              span by
+                a.authorlink(href='/user/' + post_data.author) #{post_data.author}
+      if loggedin
+        .toolbar
+            a(href="/account") <i class="fas fa-edit"></i>
+            a(href="/post/" + post_data.id + "/delete") <i class="fas fa-trash-alt"></i>
+      img.post_img(src='https://placebeard.it/780x390')
+      h2.post_title=post_data.title
+      p.post_text !{post_data.body}
+      .socialbar
+        a( href="#" class="facebook")
+          <i class="fab fa-facebook"></i> 
+        a( href="#" class="twitter")
+          <i class="fab fa-twitter"></i> 
+        a( href="#" class="google")
+          <i class="fab fa-google"></i> 
+        a( href="#" class="linkedin")
+          <i class="fab fa-linkedin"></i>
+        a( href="#" class="youtube")
+            <i class="fab fa-youtube"></i>

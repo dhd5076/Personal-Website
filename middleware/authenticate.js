@@ -1,7 +1,20 @@
-exports.login = function(req, res) {
-    if (req.session && req.session.userID) {
+exports.authopt = function(req, res, next) {
+    console.log(req.ipInfo);
+    if (req.session && req.session.user) {
+        req.session.loggedin = true;
+    } else {
+        req.session.loggedin = false;
+    }
+    return next();
+};
+
+exports.authreq = function(req, res, next) {
+    console.log(req.ipInfo);
+    if (req.session && req.session.user) {
+        req.session.loggedin = true;
         return next();
     } else {
-        res.send("You must be logged in");
+        res.render('login', {errmsg: 'You Must Be Logged In', loggedin: false});
+        req.session.loggedin = false;
     }
 };
