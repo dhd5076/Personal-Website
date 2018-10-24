@@ -32,5 +32,9 @@ router.get('/logout', auth.authreq, user_controller.user_logout_get);
 
 router.get('/user/:userID', user_controller.view_user);
 
+router.post('/user/:userID/posts', post_controller.view_user_posts);
+
+router.get('/user/:userID/posts', post_controller.view_user_posts);
+
 
 module.exports = router;

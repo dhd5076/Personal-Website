@@ -2,13 +2,13 @@ extends layout
 
 block content
     div.container
-        form.small_submit_form(method='post' action='/login')
+        form.small_submit_form(method='post' action='/user/' + username + '/posts')
             .form_title
-                h3 #{username}'s Profile
+                h3 Profile
             .input-wrapper
-                label <i class="fas fa-envelope"></i>
-                input.titlebox(name="email" type='email' placeholder='Email')
-                label <i class="fas fa-user"></i>
-                input.titlebox(name="password" type='password' placeholder='Password')
+                img.profilepic(src='https://via.placeholder.com/128x128')
+                p.username #{username}
+                p.about This text is ab written by the u is aboutls us about the user and is written by the user. This text is about the user, it tells us about the user and is written by the user. This text is about the user, it tells us about the user and is written by the user.
                 div.float_right
-                    button.submit(type='submit') Login
+                    button.view(type='submit') View #{username}'s Posts
+

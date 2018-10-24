@@ -275,6 +275,26 @@
     border-bottom:3px solid grey;
   }
 
+  img.profilepic {
+    float:left;
+    margin-right:10px;
+    margin-bottom:10px;
+  }
+
+  p.username {
+    margin:0px;
+    margin-bottom:10px;
+    font-weight: 700;
+  }
+
+  p.about {
+    margin:0px;
+    font-size:14px;
+    font-weight: 600;
+    color:#555;
+    padding-bottom:10px;
+  }
+
   .textbox:focus{
     border-bottom:3px solid #044480;
     outline: 0;
@@ -297,6 +317,10 @@
 
   button.submit {
     display: inline;
+  }
+
+  button.view {
+    width:100%;
   }
 
   .float_right {

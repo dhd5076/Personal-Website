@@ -9,8 +9,15 @@ exports.post_list_get = function(req, res) {
     });
 };
 
+exports.view_user_posts = function(req, res) {
+    Post.find({ author: req.params.userID}, function(err, post_list) {
+        if (err) { console.log(err.message); }
+        res.render('submissions', { title: 'Book List', username: req.params.userID, posts: post_list, loggedin: req.session.loggedin});
+    });
+};
+
 exports.post_create_get = function(req, res) {
-    res.render('create_post', {loggedin: req.session.loggedin});
+    res.render('submit', {loggedin: req.session.loggedin});
 };
 
 exports.post_create_post = function(req, res) {
