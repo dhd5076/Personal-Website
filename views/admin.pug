@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.container
+    div.post-wrapper
+      h3.post_title Users
+      each val, index in users
+        .user_item
+            h3 #{val.username}
+            p Email | #{val.email}
+            p Enabled | #{val.enabled}
+            if(!val.enabled)
+                button(href="#") Enable User
+            else
+                button(href="#") Disable User
+        

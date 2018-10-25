@@ -56,6 +56,10 @@
     text-decoration: none;
   }
 
+  .user_item {
+    padding:10px;
+  }
+
   textarea.about {
     height:100px;
     padding-left:6px;

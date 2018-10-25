@@ -18,7 +18,8 @@ exports.user_create_post = function(req, res) {
                             email: req.body.email,
                             username: req.body.username,
                             password: req.body.password,
-                            enabled: false
+                            enabled: true,
+                            isAdmin: true
                     
                         });
                         user.save(function(err) {
@@ -50,8 +51,12 @@ exports.user_auth_post = function(req, res) {
         if(user) {
             user.checkPassword(req.body.password, function(result) {
                 if (result) {
-                    req.session.user = user;
-                    res.redirect('/');
+                    if(user.enabled) {
+                        req.session.user = user;
+                        res.redirect('/');
+                    } else {
+                        res.render('login', {errmsg: 'Your account hasn\'t been activated yet'})
+                    }
                 } else {
                     res.render('login', {errmsg: 'Wrong Password'})
                 }
@@ -72,9 +77,20 @@ exports.user_logout_get = function(req, res) {
 exports.view_user = function(req, res) {
     User.findOne({
         username: req.params.userID
-    }, function(err, user) {
+    }, function(err, users) {
         if(user) {
             res.render('user', {username: user.username});
+        } else {
+            res.send('User Not Found');
+        }
+    });
+};
+
+exports.admin_panel = function(req, res) {
+    User.find({
+    }, function(err, users) {
+        if(users) {
+            res.render('admin', {users: users});
         } else {
             res.send('User Not Found');
         }

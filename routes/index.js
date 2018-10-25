@@ -38,5 +38,7 @@ router.post('/user/:userID/posts', post_controller.view_user_posts);
 
 router.get('/user/:userID/posts', post_controller.view_user_posts);
 
+router.get('/dashboard', auth.authadminreq, user_controller.admin_panel);
+
 
 module.exports = router;
