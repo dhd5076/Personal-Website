@@ -8,7 +8,6 @@ var session = require('express-session');
 var indexRouter = require('./routes/index');
 const expressip = require('express-ip');
 var middleware = require('./middleware/authenticate.js');
-
 var app = express();
 
 // view engine setup

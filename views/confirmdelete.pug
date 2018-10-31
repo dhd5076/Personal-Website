@@ -6,8 +6,10 @@ block content
             .form_title
                 h3 Delete Post
             .input-wrapper
-                p Are you sure you want to delete:
-                i " #{post_data.title} "
+                center
+                    h3 Delete?
+                    i " #{post_data.title} "
                 div.float_right
-                    button.submit(type='submit') Delete
+                    button.yesno(type='submit') Cancel
+                    button.yesno(type='submit') Confirm
 

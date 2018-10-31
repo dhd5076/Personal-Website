@@ -34,9 +34,9 @@ router.get('/account', auth.authreq, user_controller.view_account);
 
 router.get('/user/:userID', user_controller.view_user);
 
-router.post('/user/:userID/posts', post_controller.view_user_posts);
-
 router.get('/user/:userID/posts', post_controller.view_user_posts);
+
+router.get('/user/:userID/toggle_enabled', auth.authadminreq, user_controller.toggle_user_enabled);
 
 router.get('/dashboard', auth.authadminreq, user_controller.admin_panel);
 

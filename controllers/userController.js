@@ -90,7 +90,7 @@ exports.admin_panel = function(req, res) {
     User.find({
     }, function(err, users) {
         if(users) {
-            res.render('admin', {users: users});
+            res.render('admin', {users: users, loggedin: true});
         } else {
             res.send('User Not Found');
         }
@@ -105,6 +105,23 @@ exports.view_account = function(req, res) {
             res.render('account', {username: user.username, loggedin: true});
         } else {
             res.send('User Not Found');
+        }
+    });
+};
+
+exports.toggle_user_enabled = function(req, res) {
+    User.findOne({
+        id: req.params.userID
+    }, function(err, user) {
+        if(user) {
+            user.enabled = !user.enabled;
+            if(!user.isAdmin) {
+                user.isAdmin = false;
+            }
+            user.save();
+            res.redirect('/dashboard');
+        } else {
+            res.render('admin', {errmsg: 'User Not Found, loggedin: true'});
         }
     });
 };

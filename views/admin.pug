@@ -8,9 +8,8 @@ block content
         .user_item
             h3 #{val.username}
             p Email | #{val.email}
-            p Enabled | #{val.enabled}
             if(!val.enabled)
-                button(href="#") Enable User
+                a.enable(href="/user/" + val.id + "/toggle_enabled") Enable User
             else
-                button(href="#") Disable User
+                a.disable(href="/user/" + val.id + "/toggle_enabled") Disable User
         

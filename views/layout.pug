@@ -11,17 +11,20 @@ html
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous")
   body
     .navbar
+      .navbar-left
+        a.navtitle(href="/") DYLAN DUNN
+      .navbar-middle
+        form.search(action="/")
+          input.search(type="text")
+          a.search 
+            <i class="fas fa-search"></i>
       if loggedin
-        .navbar-left
-            a.nav(href="/") DYLAN DUNN
         .navbar-right
             a.nav(href="/") <i class="fas fa-home"></i>
             a.nav(href="/submit") <i class="fas fa-edit"></i>
             a.nav(href="/account") <i class="fas fa-user"></i>
             a.nav(href="/logout") <i class="fas fa-sign-out-alt"></i>
       else
-        .navbar-left
-            a.navtitle(href="/") DYLAN DUNN
         .navbar-right
             a.nav(href="/") <i class="fas fa-home"></i>
             a.nav(href="/login") Login

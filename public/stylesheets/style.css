@@ -25,6 +25,20 @@
     padding-bottom: 100px;
   }
 
+  a.enable, a.disable {
+    margin-top:10px;
+    padding:10px;
+    display: block;
+  }
+
+  a.enable {
+    background-color: green;
+  }
+
+  a.disable {
+    background-color: red;
+  }
+
   .post-wrapper {
     background-color: white;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
@@ -56,8 +70,35 @@
     text-decoration: none;
   }
 
+  form.search {
+    margin:auto;
+    text-align: center;
+  }
+
+  input.search {
+    height:20px;
+    width:50%;
+    outline:none;
+    border:none;
+    border-bottom: 2.5px solid black;
+  }
+
+  a.search {
+    padding-top:12px;
+  }
+
+  .navbar-middle {
+    margin:auto;
+    float:left;
+    width:30%;
+    padding-top:7px;
+    text-align: center;
+  }
+
   .user_item {
+    margin:10px;
     padding:10px;
+    border:1px solid gray;
   }
 
   textarea.about {
@@ -332,8 +373,20 @@
     display: inline;
   }
 
+  button.yesno {
+    margin-top:20px;
+    margin-left:10px;
+  }
+
   button.view {
     width:100%;
+  }
+
+  button.search {
+    width:30px;
+    height:30px;
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding:2px;
   }
 
   .float_right {
